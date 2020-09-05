@@ -1,0 +1,107 @@
+/*
+
+Helpfull links that i used for this:
+https://web-crunch.com/posts/how-to-create-skeleton-screen-loading-effect
+https://www.webtips.dev/how-to-create-skeleton-loaders-in-css
+https://www.w3schools.com/css/tryit.asp?filename=trycss_table_fancy
+
+*/
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    height: 23px;
+    text-align: left;
+    background-color: #BFC3C7;
+    color: white;
+}
+
+table td {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    height: 33px;
+    text-align: left;
+    background-color: #ffffff;
+    opacity: 0.8;
+    color: white;
+}
+
+table tr:nth-child(even) {
+    background-color: #E3E4E8;
+}
+
+table td, table th {
+    padding: 8px;
+}
+
+table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.text-title-skeleton {
+    background: #5E6572;
+    width: 60%;
+    height: 8px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.text-skeleton {
+    background: #BFC3C7;
+    opacity: 0.8;
+    width: 75%;
+    height: 8px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    float: left;
+}
+
+.circle-skeleton {
+    background: #BFC3C7;
+    opacity: 0.8;
+    width: 11px;
+    height: 11px;
+    border-radius: 80%;
+    position: relative;
+    overflow: hidden;
+    margin: 0px;
+    float: right;
+}
+
+.text-title-skeleton::before, .text-skeleton::before, .circle-skeleton::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: -150px;
+    top: 0;
+    height: 100%;
+    width: 150px;
+    background: linear-gradient(to right, transparent 0%, #E8E8E8 50%, transparent 100%);
+    animation: load 1s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+.show-on-media {
+    display: none;
+}
+
+@media only screen and (max-width: 400px) {
+    .hide-on-media {
+        display: none;
+    }
+    .show-on-media {
+        display: table;
+    }
+}
+
+@keyframes load {
+    from {
+        left: -150px;
+    }
+    to {
+        left: 100%;
+    }
+}
